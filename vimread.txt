@@ -1,0 +1,343 @@
+NERDTree 
+o 打开关闭文件或者目录
+t 在标签页中打开
+T 在后台标签页中打开
+! 执行此文件
+p 到上层目录
+P 到根目录
+K 到第一个节点
+J 到最后一个节点
+u 打开上层目录
+m 显示文件系统菜单（添加、删除、移动操作）
+? 帮助
+q 关闭
+ctrl + w + h 光标 focus 左侧树形目录
+ctrl + w + l 光标 focus 右侧文件显示窗口
+ctrl + w + w 光标自动在左右侧窗口切换
+ctrl + w + r 移动当前窗口的布局位置
+o 在已有窗口中打开文件、目录或书签，并跳到该窗口
+go 在已有窗口 中打开文件、目录或书签，但不跳到该窗口
+t 在新 Tab 中打开选中文件/书签，并跳到新 Tab
+T 在新 Tab 中打开选中文件/书签，但不跳到新 Tab
+i split 一个新窗口打开选中文件，并跳到该窗口
+gi split 一个新窗口打开选中文件，但不跳到该窗口
+s vsplit 一个新窗口打开选中文件，并跳到该窗口
+gs vsplit 一个新 窗口打开选中文件，但不跳到该窗口
+! 执行当前文件
+O 递归打开选中 结点下的所有目录
+x 合拢选中结点的父目录
+X 递归 合拢选中结点下的所有目录
+e Edit the current dif
+双击 相当于 NERDTree-o
+中键 对文件相当于 NERDTree-i，对目录相当于 NERDTree-e
+D 删除当前书签
+P 跳到根结点
+p 跳到父结点
+K 跳到当前目录下同级的第一个结点
+J 跳到当前目录下同级的最后一个结点
+k 跳到当前目录下同级的前一个结点
+j 跳到当前目录下同级的后一个结点
+C 将选中目录或选中文件的父目录设为根结点
+u 将当前根结点的父目录设为根目录，并变成合拢原根结点
+U 将当前根结点的父目录设为根目录，但保持展开原根结点
+r 递归刷新选中目录
+R 递归刷新根结点
+m 显示文件系统菜单
+cd 将 CWD 设为选中目录
+I 切换是否显示隐藏文件
+f 切换是否使用文件过滤器
+F 切换是否显示文件
+B 切换是否显示书签
+q 关闭 NerdTree 窗口
+? 切换是否显示 Quick Help
+切换标签页
+:tabnew [++opt选项] ［＋cmd］ 文件 建立对指定文件新的tab
+:tabc 关闭当前的 tab
+:tabo 关闭所有其他的 tab
+
+:tabn 后一个 tab
+标准模式下：
+gT 前一个 tab
+gt 后一个 tab
+MacVim 还可以借助快捷键来完成 tab 的关闭、切换
+cmd+w 关闭当前的 tab
+cmd+{ 前一个 tab
+	cmd+} 后一个 tab
+	NerdTree 在 .vimrc 中的常用配置
+	" 在 vim 启动的时候默认开启 NERDTree（autocmd 可以缩写为 au）
+	autocmd VimEnter * NERDTree
+	" 按下 F2 调出/隐藏 NERDTree
+	map :silent! NERDTreeToggle
+	" 将 NERDTree 的窗口设置在 vim 窗口的右侧（默认为左侧）
+	let NERDTreeWinPos="right"
+	" 当打开 NERDTree 窗口时，自动显示 Bookmarks
+	let NERDTreeShowBookmarks=1
+
+
+
+
+
+
+
+	et foldmethod=indent "set default foldmethod
+	"zi 打开关闭折叠
+	"zv 查看此行
+	zm 关闭折叠
+	zM 关闭所有
+	zr 打开
+	zR 打开所有
+	zc 折叠当前行
+	zo 打开当前折叠
+	zd 删除折叠
+	zD 删除所有折叠
+
+
+
+###############################################
+
+	4 find string all file by vim
+
+	:vimgrep /string/j **/*.c
+
+						   result
+						   查找的结果可以用":copen"命令查看,在列表里,将光标移动至相应的位置,按回车就打开对应的文件了.
+						   注:
+						   :copen    打开quickfix
+						   :cclose    关闭quickfix
+						   :cc    是在转到当前查找到的位置
+						   :cn    转到下一个位置
+						   :cp    转到前一个位置
+
+
+
+
+
+
+						   Ctrlp
+						   Press <F5> to purge the cache for the current directory to get new files, remove deleted files and apply new ignore options.
+						   Press <c-f> and <c-b> to cycle between modes.
+						   Press <c-d> to switch to filename only search instead of full path.
+						   Press <c-r> to switch to regexp mode.
+						   Use <c-j>, <c-k> or the arrow keys to navigate the result list.
+						   Use <c-t> or <c-v>, <c-x> to open the selected entry in a new tab or in a new split.
+						   Use <c-n>, <c-p> to select the next/previous string in the prompt's history.
+						   Use <c-y> to create a new file and its parent directories.
+						   Use <c-z> to mark/unmark multiple files and <c-o> to open them.
+
+
+
+
+						   vim 前进 后退 快捷键
+						   Ctrl-o 后退
+						   Ctrl-i 前进
+
+
+
+						   统计
+						   假设统计的字符“test”，输入
+						   %s/test/&/gn（回车）
+						   替换
+						   %s/user/u/g意思是说文件中所有的user替换成u
+						   其中g是全局替换的意思（针对一行）%意思是对整个文件的每一行做这个操作
+
+
+						   最快的方式是让光标停留在想要查找的单词的任意一个字母上面，
+						   然后输入Shift + *  ，
+						   即可快速选中该单词，并且可以通过 n  或  N 进行上一个或下一个的匹配
+
+
+						   search
+						   搜索替换的范围。如果没有指定范围，则只在当前行进行搜索替换。
+						   在所有行进行搜索替换。范围符号%表示在所有行进行搜索替换。
+						   :%s/from/to/就是在全文查找from并替换为to。
+						   在指定的行上进行搜索替换。:1,50s/from/to/表示在第1行和第50行之间
+						   （包括1和50行）进行搜索和替换。
+						   :45s/from/to/表示仅仅在第45行进行搜索和替换。
+						   而"1,$"行号范围和“%“是等价的。
+
+
+						   delete
+						   删除文件中所有的空行
+						   :g/^\s*$/d
+
+						   去掉所有的行尾空格：
+						   :%s/\s\+$//
+
+						   整个文件特定字符串的替换
+						   :%s/old_word/new_word/g
+
+						   删除从当前行开始到最后一行的所有内容:
+						   .,$d
+
+
+
+
+
+
+
+
+	Vundle命令
+
+	:BundleList -列举出列表中(.vimrc中)配置的所有插件
+	:BundleInstall -安装列表中全部插件
+	:BundleInstall! -更新列表中全部插件
+	:BundleSearch foo -查找foo插件
+	:BundleSearch! foo -刷新foo插件缓存
+	:BundleClean -清除列表中没有的插件
+	:BundleClean! -清除列表中没有的插件
+
+
+	select
+	选中文本的操作
+	用V命令进入的行可视化模式（Linewise visual mode)。文本选择是以行为单位的
+
+
+
+
+
+	Vim 编辑器使用术语 "缓冲区" 来描述编辑当中的文件。实际上，缓冲区是你编辑的文件
+	的副本。你修改完缓冲区，就把缓冲区的内容写进文件。缓冲区不仅存放文件内容，而且
+	还存放着全部标记，设定，以及其它跟被编辑文件相关的东西。
+
+
+	隐 藏 的 缓 冲 区
+
+	假设你在编辑文件 one.txt，同时又要编辑文件 two.txt。你本来可以简单地用 ":edit
+	two.txt" 来办到，但由于你已经修改了 one.txt，那样做就没用了。而你又不想在此时
+	就把 one.txt 存盘。Vim 可以为你解决这个问题:
+
+	:hide edit two.txt
+
+	缓冲区 "one.txt" 从屏幕消失，但 Vim 仍然知道你在编辑这个缓冲区，因而保留着它修
+	改过的文本。这样的缓冲区称为隐藏的缓冲区: 缓冲区存放着文本，但你看不见它。
+	命令 ":hide" 的参数是另一个命令。它使得那个命令表现得就像 'hidden' 选项已被
+	设定。你也可以不用 ":hide" 命令而设定 'hidden' 选项。其作用是当离开任何缓冲区
+	时，该缓冲区变成隐藏。
+	小心！当你的隐藏的缓冲区已经改动，千万不要在所有缓冲区存盘之前就退出 Vim。
+
+
+	非 激 活 缓 冲 区
+
+	一个缓冲区一经使用，Vim 就记住了一些有关该缓冲区的信息。即使它既不显示在窗
+	口内，又非隐藏缓冲区，它也仍然在缓冲区列表上。这样的缓冲区称为非激活缓冲区。一
+	般而言，
+
+	激活         显示在窗口内，并加载文本
+	隐藏         不显示在窗口内，但加载文本
+	非激活       不显示在窗口内，不加载文本
+
+	非激活缓冲区不会被遗忘，因为 Vim 保存着关于它们的信息，如标记等。而且记住文件
+	名有个好处，你可以调阅你编辑过的文件名，再次编辑它们。
+
+
+	缓 冲 区 列 表
+
+	你可以用这个命令查看缓冲区列表:
+
+	:buffers
+
+	另一个作用相当的命令，虽然意思不那么明白，但键入时省事多了:
+
+	:ls
+
+	其输出可能像这样:
+
+	1 #h "help.txt"                      line 62 
+	2 %a+ "usr_21.txt"                    line 1 
+	3     "usr_toc.txt"                   line 1 
+
+	第一栏存放缓冲区号。你可以利用它来编辑文件，而不用键入文件名，参见下文。
+	紧随缓冲区号的是些标志位。然后是文件名，以及光标最后一次停留的行号。
+	可能出现的标志位有以下这些 (自左至右):
+
+		u       列表外缓冲区 |unlisted-buffer|。
+		%      当前缓冲区。
+#      轮换缓冲区。
+		a     激活缓冲区，缓冲区被加载且显示。
+		h     隐藏缓冲区，缓冲区被加载但不显示。
+		=    只读缓冲区。
+		-    不可改缓冲区， 'modifiable' 选项不置位。
+		+   已修改缓冲区。
+
+
+		编 辑 缓 冲 区
+
+		你可以通过指定其缓冲区号来编辑一个缓冲区，而不必键入文件名:
+
+		:buffer 2
+
+		但获知缓冲区号的唯一途径是查阅缓冲区列表。如果不用缓冲区号，你可以用文件名，或
+		其部分:
+
+		:buffer help
+
+		Vim 将为你键入的文件名找到最佳匹配。如果只有一个缓冲区与之匹配，该缓冲区就被选
+		用。在这个例子中，被选中的就是 "help.txt"。
+		要在新窗口中打开一个缓冲区:
+
+		:sbuffer 3
+
+		这方法也适用于文件名。
+
+
+		使 用 缓 冲 区 列 表
+
+		你可以用这些命令在缓冲区列表间移动:
+
+		:bnext          编辑下一个缓冲区
+		:bprevious      编辑前一个缓冲区
+		:bfirst         编辑第一个缓冲区
+		:blast          编辑最后一个缓冲区
+
+		要从缓冲区列表上删除一个缓冲区，用这个命令:
+
+		:bdelete 3
+
+		同样，这命令也适用文件名。
+		如果你删除了一个激活的缓冲区 (显示在窗口中的缓冲区)，你也就关闭了该窗口。如
+		果你删除了当前缓冲区，你也就关闭了当前窗口。如果它是最后一个窗口，Vim 将找一个
+		缓冲区来编辑。你无法什么也不编辑！
+
+		备注:
+		即使用 ":bdelete" 命令删除了缓冲区以后，Vim 依然记得它。这个缓冲区实际
+		上成了 "列表外" 缓冲区，它不再出现在 ":buffers" 命令所报告的列表中。不
+		过 ":buffers!" 命令仍会列出 "列表外" 缓冲区 (没错，Vim 无所不能)。要让
+		Vim 彻底忘记一个缓冲区，用 ":bwipe" 命令。另见 'buflisted' 选项。
+
+
+
+
+		vim 格式化
+		1，gg 跳转到第一行
+		2，v 转到可视模式
+		3，shift+g 全选
+		4，按下神奇的 =
+
+
+[[ 跳到函数头
+][ 跳到函数尾
+]] 下个函数头
+[] 跳到上一个函数
+[{ 跳到上一层大括号
+
+
+跳转
+w 跳到下一个单词的开始
+e 跳到单词的结束
+b 向后跳
+CTRL-f 向前一页
+CTRL-b 向后一页
+CTRL-d 向下半页
+CTRL-u 向上半页
+CTRL-e 向下一行
+CTRL-y 向上一行
+
+
+
+1.删除当前行后面所有的行：
+
+,$d
+
+2.删除第一行到当前行：
+
+1,.d
